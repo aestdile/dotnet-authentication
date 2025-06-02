@@ -12,7 +12,7 @@ public class AuthService
         var userExists = _context.Users.Any(u => u.Username == username);
         if (userExists)
         {
-            Console.WriteLine("\n⚠️ This user is already exist!");
+            Console.WriteLine("\nThis user is already exist!");
             return;
         }
 
@@ -20,7 +20,7 @@ public class AuthService
         _context.Users.Add(user);
         _context.SaveChanges();
 
-        Console.WriteLine("\n✅ Registration is successfull!");
+        Console.WriteLine("\nRegistration is successfull!");
     }
 
     public void Login(string username, string password)
@@ -28,11 +28,11 @@ public class AuthService
         var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
         if (user == null)
         {
-            Console.WriteLine("\n❌ Invalid Error! Password or Username is incorrect!");
+            Console.WriteLine("\nInvalid Error! Password or Username is incorrect!");
         }
         else
         {
-            Console.WriteLine($"\n🎉 Welcome, {username}!");
+            Console.WriteLine($"\nWelcome, {username}!");
         }
     }
 }
